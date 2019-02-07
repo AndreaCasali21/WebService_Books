@@ -1,0 +1,4 @@
+{"bookscart":[{"book":0,"cart":0,"ncopies":12,"availability":true},
+{"book":1,"cart":1,"ncopies":15,"availability":false},
+{"book":2,"cart":2,"ncopies":33,"availability":true},
+{"book":3,"cart":3,"ncopies":121,"availability":false}]}
