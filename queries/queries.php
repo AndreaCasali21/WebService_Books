@@ -1,9 +1,9 @@
 <?php
 header ("Content-Type_application/json");
 	include ("function.php");
-	if(!empty($_GET['name'])){
+	if(!empty($_GET['codice'])){
 	
-			$name=$_GET['name'];
+			$name=$_GET['codice'];
 			switch ($name){
 				case 1:
 					$cont=count_fumetti();

@@ -21,8 +21,7 @@ namespace ServiceClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string url = "10.13.100.25/work/webservices/books/service.php";
-        private string Comando, Categoria, Dipartimento,Dipartimento2="",Dipartimento3="";
+        private int numcodice = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +33,7 @@ namespace ServiceClient
         }
         
         private void Btn_ricerca_Click(object sender, RoutedEventArgs e) {
-            string url = "http://localhost/rest/?name=" + 1;
+            string url = "http://10.13.100.37/Github/queries.php?codice=" + numcodice;
             Getrequest(url);
         }
 
@@ -50,10 +49,11 @@ namespace ServiceClient
                     using (HttpContent content = response.Content)
                     {//possiamo usare HttpContentHeader headers = content.Headers;
                         string mycontent = await content.ReadAsStringAsync();
-                        for (int x = 0; x < mycontent.Length; x++)
+                        /*for (int x = 0; x < mycontent.Length; x++)
                         {
                             lst_elenco.Items.Add(mycontent[x]);
-                        }
+                        }*/
+                        MessageBox.Show(mycontent);
                     }
 
                 }
@@ -65,21 +65,14 @@ namespace ServiceClient
             if(cmb_selezione.SelectedIndex == 0)
             {
                 btn_ricerca.IsEnabled = true;
-                Comando = "COUNT";
-                Categoria = "fumetti";
-                Dipartimento = "ultimi arrivi";
+                numcodice = 1;
                 txt_libri.Visibility = System.Windows.Visibility.Hidden;
                 txt_reparti.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Hidden;
                 lbl_2.Visibility = System.Windows.Visibility.Hidden;
             }
             if (cmb_selezione.SelectedIndex == 1)
-            {
-                Comando = "IS";
-                Dipartimento = "Da non perdere";
-                Dipartimento2 = "Offerte speciali";
-                Dipartimento3 = "Remainders";
-                Categoria = "";
+            {               
                 txt_libri.Visibility = System.Windows.Visibility.Hidden;
                 txt_reparti.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Hidden;

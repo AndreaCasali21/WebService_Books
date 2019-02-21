@@ -13,3 +13,18 @@ C:\Users\andrea.casali\Desktop\GitHub\WebService_Books\source\csharp\ServiceClie
 C:\Users\andrea.casali\Desktop\GitHub\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.csproj.CoreCompileInputs.cache
 C:\Users\andrea.casali\Desktop\GitHub\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.exe
 C:\Users\andrea.casali\Desktop\GitHub\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.pdb
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\bin\Debug\ServiceClient.exe.config
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\bin\Debug\ServiceClient.exe
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\bin\Debug\ServiceClient.pdb
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.csprojAssemblyReference.cache
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\MainWindow.g.cs
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\App.g.cs
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient_MarkupCompile.cache
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient_MarkupCompile.lref
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\MainWindow.baml
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.g.resources
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.Properties.Resources.resources
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.csproj.GenerateResource.cache
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.csproj.CoreCompileInputs.cache
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.exe
+C:\Users\andrea.casali\Desktop\Nuova cartella\WebService_Books\source\csharp\ServiceClient\obj\Debug\ServiceClient.pdb
