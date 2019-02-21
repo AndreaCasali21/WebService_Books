@@ -23,6 +23,7 @@ function count_fumetti(){
 		 
 		 }
 	 }
+	 return $count;
  }
 
 ?>
