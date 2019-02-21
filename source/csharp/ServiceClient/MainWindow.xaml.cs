@@ -34,46 +34,32 @@ namespace ServiceClient
         }
         
         private void Btn_ricerca_Click(object sender, RoutedEventArgs e) {
-            string url = "https://github.com/AndreaCasali21/WebService_Books.git";
-            if (Dipartimento2 == "")
-            {
-                Getrequest(
-                    new List<KeyValuePair<string, string>>() {
-                    new KeyValuePair<string, string>("Query", Comando+" books.category IS "+Categoria+" AND "+" books.department IS "+Dipartimento)
-                    }, url
-                );
-            }
-            else
-            {
-                Getrequest(
-                    new List<KeyValuePair<string, string>>() {
-                    new KeyValuePair<string, string>("Query", Comando+" books.category IS "+Categoria+" AND "+" books.department IS "+Dipartimento+","+Dipartimento2+","+Dipartimento3)
-                    }, url
-                );
-            }
-       }
+            string url = "http://localhost/rest/?name=" + 1;
+            Getrequest(url);
+        }
 
         /**
          * Inviatore della richiesta
          */
-        async void Getrequest(IEnumerable<KeyValuePair<string, string>> request,string url) {
-            // creo il messaggio HTTP dalla richiesta fornita
-            HttpContent cont = new FormUrlEncodedContent(request);
+        async void Getrequest(string url)
+        {
             using (HttpClient client = new HttpClient())
             {
-                using (HttpResponseMessage response = await client.PostAsync(url, cont))
+                using (HttpResponseMessage response = await client.GetAsync(url))
                 {
                     using (HttpContent content = response.Content)
-                    {
+                    {//possiamo usare HttpContentHeader headers = content.Headers;
                         string mycontent = await content.ReadAsStringAsync();
-                        for(int x = 0; x < mycontent.Length; x++)
+                        for (int x = 0; x < mycontent.Length; x++)
                         {
                             lst_elenco.Items.Add(mycontent[x]);
                         }
                     }
+
                 }
+
             }
-        }
+        }        
         private void cmb_selezione_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(cmb_selezione.SelectedIndex == 0)
