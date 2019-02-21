@@ -16,6 +16,14 @@ header ("Content-Type_application/json");
 				return $cont;
 				break;
 				case 2:
+				
+			    $array=elenco_scontati();
+				if($array=="")
+						deliver_response(404,"book not found", NULL);
+					else
+					{
+						deliver_response(200,"success", $cont);
+					}
 			break;
 	
 			}
@@ -29,8 +37,8 @@ header ("Content-Type_application/json");
 	{
 		header("HTTP/1.1 $status $status_message");
 		
-		$response ['status']=$status;
-		$response['status_message']=$status_message;
+		//$response ['status']=$status;
+		//$response['status_message']=$status_message;
 		$response['data']=$data;
 		
 		$json_response=json_encode($response);

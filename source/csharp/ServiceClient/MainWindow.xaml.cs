@@ -72,7 +72,8 @@ namespace ServiceClient
                 lbl_2.Visibility = System.Windows.Visibility.Hidden;
             }
             if (cmb_selezione.SelectedIndex == 1)
-            {               
+            {
+                numcodice = 2;
                 txt_libri.Visibility = System.Windows.Visibility.Hidden;
                 txt_reparti.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Hidden;
