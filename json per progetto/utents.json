@@ -1,3 +1,3 @@
-{"utents":[{"telephone":3894304577,"name":"alessandro","surname":"bianchi","email":"alessandro.bianchi@gmail.com","password":"ecchi","address":"via camaleonte 113","cap":12345,"city":"cesena","nationality":"italy","fax":342342},
-{"telephone":3703223503,"name":"rosario","surname":"muniz","email":"rosario.muniz@gmail.com","password":"drgd","address":"via comete 1231","cap":47521,"city":"cesena","nationality":"italy","fax":456665},
-{"telephone":3312423448,"name":"leonardo","surname":"satana","email":"leonardo.satana@gmail.com","password":"sas","address":"via re 642","cap":63635,"city":"venezia","nationality":"italy","fax":545234}]}
+{"utents":[{"telephone":"3894304577","name":"alessandro","surname":"bianchi","email":"alessandro.bianchi@gmail.com","password":"ecchi","address":"via camaleonte 113","cap":"12345","city":"cesena","nationality":"italy","fax":"342342"},
+{"telephone":"3703223503","name":"rosario","surname":"muniz","email":"rosario.muniz@gmail.com","password":"drgd","address":"via comete 1231","cap":"47521","city":"cesena","nationality":"italy","fax":"456665"},
+{"telephone":"3312423448","name":"leonardo","surname":"satana","email":"leonardo.satana@gmail.com","password":"sas","address":"via re 642","cap":"63635","city":"venezia","nationality":"italy","fax":"545234"}]}
