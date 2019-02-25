@@ -24,25 +24,40 @@
 	 return $count;
  }
  function elenco_scontati(){
-	 $strb = file_get_contents('http://10.13.100.37/Github/books.json');
-	 $strbc = file_get_contents('http://10.13.100.37/Github/bookcategories.json');
-	 $strc = file_get_contents('http://10.13.100.37/Github/categories.json');
-	$books = json_decode($strb, true); 	
+	$strb = file_get_contents('C:\Users\alex.carlone\Desktop\restlibri\WebService_Books\json per progetto\books.json');
+	$books = json_decode($strb, true); 
+	$strbc = file_get_contents('C:\Users\alex.carlone\Desktop\restlibri\WebService_Books\json per progetto\bookcategories.json');
 	$bookcategories=json_decode($strbc,true);
+	$strc = file_get_contents('C:\Users\alex.carlone\Desktop\restlibri\WebService_Books\json per progetto\categories.json');
 	$categories=json_decode($strc,true);
-    foreach($books['books'] as $book)
-	 {		 
-		 foreach($bookcategories['bookcategories'] as $bookcategorie)
-		 {
-			 if($bookcategorie['category']=='Ultimi arrivi' and $book['ID']==$bookcategorie['book'])
-				 $count++;
-		 }
-		 
-		 }
-	 }
-	 return $count;
- 
- 
- 
+	
+	$arraybooks=[];
+	$x=0;
+	foreach($books['books'] as $book)
+	{
+		$id=$book['ID'];
+		foreach($bookcategories['bookcategories'] as $bookcategorie)
+		{
+			if($id==$bookcategorie['book'])
+			{
+				foreach($categories['categories'] as $categorie)
+				{
+					if($bookcategorie['category']==$categorie['type'])
+					{
+						if($categorie['discount']==50){
+							$arraybooks[$book['title']] = $categorie['discount'];
+						}else if($categorie['discount']==20){
+							$arraybooks[$book['title']] = $categorie['discount'];
+						} else if($categorie['discount']==0){
+							$arraybooks[$book['title']] = $categorie['discount'];
+						}
+					}
+				}
+						
+			}
+		}
+	}
+	asort($arraybooks);
+	return $arraybooks;
  }
  ?>

@@ -33,7 +33,7 @@ namespace ServiceClient
         }
         
         private void Btn_ricerca_Click(object sender, RoutedEventArgs e) {
-            string url = "http://10.13.100.37/Github/queries.php?codice=" + numcodice;
+            string url = "C:/Users/andrea.casali/Desktop/Nuova cartella/WebService_Books/json per progetto/queries.php?codice=" + numcodice;
             Getrequest(url);
         }
 
