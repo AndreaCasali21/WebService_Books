@@ -26,44 +26,91 @@ const TOKEN_OR    = 'OR';
 const TOKEN_IS    = 'IS';
 const TOKEN_NIS   = 'NOT_IS';
 
+/**
+ * The token rappresentation for the language internally
+ * contains the type of the token, the action to perform
+ * and the parameters for the action itself
+ */
+class Token {
+    /**
+     * the type of the token contained
+     * @var int
+     */
+    private $type;
+
+    /**
+     * the action that must be executed for this token
+     * @var Callable
+     */
+    private $action;
+
+    /**
+     * Filled constructor
+     *
+     * @param int type:             the type of tìoken
+     * @param Callable action:      the action to call for this token
+     */
+    public function __construct($type, $action) {
+        $this->type = $type;
+        $this->action = $action;
+    }
+
+    /**
+     * @return int type of the token
+     */
+    function getType() {
+        return ( $this->type );
+    }
+
+    /**
+     * @return Callable action of this token
+     */
+    function getAction() {
+        return ( $this->action );
+    }
+
+    /**
+     * Calls the action providing to him the parameters
+     * and returning the processing value, this can be called only once
+     *
+     * @return ? the function return value
+     */
+    function call($params) {
+        return ( $this->action($params) );
+    }
+}
+
 // the list of tokens avaible for this language with
 // the list of avaible commands supported by the language
 $TOKENS = array(
     // counts the evaluated query
-    TOKEN_COUNT => {
-        // the action to perform with this command
-        'action' => function ($params) {
-
-        },
-        // the type of the token
-        'type' => TYPE_CMD,
-        // the number of params necessary
-        'params' => 1
-    },
-    // connects two expessions
-    TOKEN_AND => {
-        // the action to perform with this command
-        'action' => function ($params) {
+    TOKEN_COUNT => new Token(
+        // the count token is a command, this means that
+        // must be the first token on the query string
+        TYPE_CMD,
+        // the action to perform for this token
+        function ($params) {
 
         }
-        // the type of the token
-        // LOP stands for LOGIC OPERATOR
-        'type' => TYPE_LOP,
-        // the number of params necessary
-        'params' => 2
-    },
+    ),
     // connects two expessions
-    TOKEN_OR => {
-        // the action to perform with this command
-        'action' => function ($params) {
+    TOKEN_AND => new Token(
+        // the AND token is a logic operator
+        TYPE_LOP,
+        // the action to perform for this token
+        function ($params) {
 
         }
-        // the type of the token
-        // LOP stands for LOGIC OPERATOR
-        'type' => TYPE_LOP,
-        // the number of params necessary
-        'params' => 2
-    },
+    ),
+    // connects two expessions
+    TOKEN_OR => new Token(
+        // the OR token is a logic operator
+        TYPE_LOP,
+        // the action to perform for this token
+        function ($params) {
+
+        }
+    ),
     // compares two expessions
     TOKEN_IS => {
         // the action to perform with this command
@@ -84,7 +131,7 @@ $TOKENS = array(
             $exprright = $params[1];
 
             // now we have the tables
-            
+
         }
         // the type of the token
         'type' => TYPE_CMP,
