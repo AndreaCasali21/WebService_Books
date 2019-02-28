@@ -7,17 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn_ricerca" Content="Ricerca" HorizontalAlignment="Left" Margin="36,78,0,0" VerticalAlignment="Top" Width="103" Click="Btn_ricerca_Click" Height="28"/>
-        <TextBox x:Name="txt_libri" HorizontalAlignment="Left" Height="23" Margin="202,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txt_reparti" HorizontalAlignment="Left" Height="23" Margin="356,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btn_ricerca" Content="Ricerca" HorizontalAlignment="Left" Margin="36,83,0,0" VerticalAlignment="Top" Width="103" Click="Btn_ricerca_Click" Height="28"/>
         <ListBox x:Name="lst_elenco" HorizontalAlignment="Left" Height="363" Margin="500,37,0,0" VerticalAlignment="Top" Width="274"/>
-        <ComboBox x:Name="cmb_selezione" HorizontalAlignment="Left" Margin="36,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmb_selezione_SelectionChanged">
-            <ListBoxItem Content="Quantità"/>
-            <ListBoxItem Content="Scontati"/>
-            <ListBoxItem Content="Libri Archiviati"/>
+        <ComboBox x:Name="cmb_selezione" HorizontalAlignment="Left" Margin="36,37,0,0" VerticalAlignment="Top" Width="139" SelectionChanged="cmb_selezione_SelectionChanged">
+            <ListBoxItem Content="Quantità libri fumetti"/>
+            <ListBoxItem Content="Elenco libri scontati"/>
+            <ListBoxItem Content="Libri Archiviati "/>
+            <ListBoxItem Content="Elenco libri nel carrello"/>
         </ComboBox>
-        <Label x:Name="lbl_1" Content="" HorizontalAlignment="Left" Margin="202,6,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lbl_2" Content="" HorizontalAlignment="Left" Margin="356,6,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lbl_1" Content="" HorizontalAlignment="Left" Margin="202,6,0,0" VerticalAlignment="Top" Width="139"/>
+        <Label x:Name="lbl_2" Content="" HorizontalAlignment="Left" Margin="356,6,0,0" VerticalAlignment="Top" Width="134"/>
+        <DatePicker x:Name="dp_data1" HorizontalAlignment="Left" Margin="202,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="123">
+            <DatePicker.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.108"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DatePicker.RenderTransform>
+        </DatePicker>
+        <DatePicker x:Name="dp_data2" HorizontalAlignment="Left" Margin="356,42,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_codice" HorizontalAlignment="Left" Height="28" Margin="202,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

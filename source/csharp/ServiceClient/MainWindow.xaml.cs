@@ -22,19 +22,36 @@ namespace ServiceClient
     public partial class MainWindow : Window
     {
         private int numcodice = 0;
+        int id = 0;
+        string codicecarrello = "";
         public MainWindow()
         {
             InitializeComponent();
             btn_ricerca.IsEnabled = false;
-            txt_libri.Visibility = System.Windows.Visibility.Hidden;
-            txt_reparti.Visibility = System.Windows.Visibility.Hidden;
+            dp_data1.Visibility = System.Windows.Visibility.Hidden;
+            dp_data2.Visibility = System.Windows.Visibility.Hidden;
             lbl_1.Visibility = System.Windows.Visibility.Hidden;
             lbl_2.Visibility = System.Windows.Visibility.Hidden;
+            txt_codice.Visibility = System.Windows.Visibility.Hidden;
         }
         
         private void Btn_ricerca_Click(object sender, RoutedEventArgs e) {
-            string url = "C:/Users/andrea.casali/Desktop/Nuova cartella/WebService_Books/json per progetto/queries.php?codice=" + numcodice;
-            Getrequest(url);
+            if (id==0)
+            {
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?codice=" + numcodice;
+                Getrequest(url);
+            }
+            else if(id==1)
+            {              
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?codice=" + numcodice + "&date1=" + dp_data1.DisplayDate.ToShortDateString() + "&date2=" + dp_data2.DisplayDate.ToShortDateString();
+                Getrequest(url);
+            }
+            else
+            {
+                codicecarrello = txt_codice.Text;
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?codice=" + numcodice + "&idcarrello=" + codicecarrello;
+                Getrequest(url);
+            }
         }
 
         /**
@@ -48,11 +65,7 @@ namespace ServiceClient
                 {
                     using (HttpContent content = response.Content)
                     {//possiamo usare HttpContentHeader headers = content.Headers;
-                        string mycontent = await content.ReadAsStringAsync();
-                        /*for (int x = 0; x < mycontent.Length; x++)
-                        {
-                            lst_elenco.Items.Add(mycontent[x]);
-                        }*/
+                        string mycontent = await content.ReadAsStringAsync();                  
                         MessageBox.Show(mycontent);
                     }
 
@@ -66,27 +79,48 @@ namespace ServiceClient
             {
                 btn_ricerca.IsEnabled = true;
                 numcodice = 1;
-                txt_libri.Visibility = System.Windows.Visibility.Hidden;
-                txt_reparti.Visibility = System.Windows.Visibility.Hidden;
+                dp_data1.Visibility = System.Windows.Visibility.Hidden;
+                dp_data2.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Hidden;
                 lbl_2.Visibility = System.Windows.Visibility.Hidden;
+                txt_codice.Visibility = System.Windows.Visibility.Hidden;
+                id = 0;
             }
             if (cmb_selezione.SelectedIndex == 1)
             {
+                btn_ricerca.IsEnabled = true;
                 numcodice = 2;
-                txt_libri.Visibility = System.Windows.Visibility.Hidden;
-                txt_reparti.Visibility = System.Windows.Visibility.Hidden;
+                dp_data1.Visibility = System.Windows.Visibility.Hidden;
+                dp_data2.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Hidden;
                 lbl_2.Visibility = System.Windows.Visibility.Hidden;
+                txt_codice.Visibility = System.Windows.Visibility.Hidden;
+                id = 0;
             }
             if (cmb_selezione.SelectedIndex == 2)
             {
-                txt_libri.Visibility = System.Windows.Visibility.Visible;
-                txt_reparti.Visibility = System.Windows.Visibility.Visible;
+                btn_ricerca.IsEnabled = true;
+                numcodice = 3;
+                dp_data1.Visibility = System.Windows.Visibility.Visible;
+                dp_data2.Visibility = System.Windows.Visibility.Visible;
+                txt_codice.Visibility = System.Windows.Visibility.Hidden;
                 lbl_1.Visibility = System.Windows.Visibility.Visible;
                 lbl_1.Content = "Inserisci la data iniziale";
                 lbl_2.Visibility = System.Windows.Visibility.Visible;
                 lbl_2.Content = "Inserisci la data finale";
+                id = 1;
+            }
+            if (cmb_selezione.SelectedIndex == 3)
+            {
+                btn_ricerca.IsEnabled = true;
+                numcodice = 4;
+                dp_data1.Visibility = System.Windows.Visibility.Hidden;
+                dp_data2.Visibility = System.Windows.Visibility.Hidden;
+                lbl_1.Visibility = System.Windows.Visibility.Visible;
+                lbl_1.Content = "Inserire il codice \rdel carrello";
+                lbl_2.Visibility = System.Windows.Visibility.Hidden;
+                txt_codice.Visibility = System.Windows.Visibility.Visible;               
+                id = 2;
             }
         }
     }
