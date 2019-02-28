@@ -22,6 +22,7 @@ function load_and_decode(string $path) {
  * Loads all the json archives and stores the data on the $DB_DATA array
  */
 function load_db() {
+    return true;
 }
 
 /**

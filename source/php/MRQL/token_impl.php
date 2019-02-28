@@ -41,14 +41,14 @@ $TOKENS = array(
         }
     ),
     // compares two expessions
-    TOKEN_NIS => {
+    TOKEN_NIS => new Token(
         // the IS token is a comparer operator
         TYPE_CMP,
         // the action to perform with this command
         function (State $state) {
 
         }
-    }
+    )
 );
 
 ?>

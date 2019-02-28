@@ -1,7 +1,9 @@
 <?php
 
 /**
- * The state object contains the current state of the parsing and the AST representation and is provided to the functions of the actions 
+ * The state object contains the current state of the parsing
+ * and the AST representation and is provided to the token's
+ * action functions to get variables and parameters
  */
 class State {
 
@@ -43,7 +45,7 @@ function parse_query(string $query) {
     // now parse each tooken to get the right action to do
     // the first token must be the command, so search it
     // into the $COMMANDS array of functions
-    if (!array_key_exists($tokens[CMD_IDX], $TOKENS) || $TOKENS[$tokens[CMD_IDX]]['type'] != TYPE_CMD) {
+    if (!array_key_exists($tokens[CMD_IDX], $TOKENS) || $TOKENS[$tokens[CMD_IDX]]->getType() != TYPE_CMD) {
         $ERROR_MSG = "query command not supported or unexisting";
         return false;
     }
@@ -84,13 +86,13 @@ function parse_query(string $query) {
         $action = $TOKENS[$token];
         switch ($action['params']) {
             case 1:
-                array_push($params, &next($tokens));
+                array_push($params, next($tokens));
                 prev($tokens);
                 break;
             case 2:
-                array_push($params, &prev($tokens));
+                array_push($params, prev($tokens));
                 next($tokens);
-                array_push($params, &next($tokens));
+                array_push($params, next($tokens));
                 prev($tokens);
                 break;
         }
