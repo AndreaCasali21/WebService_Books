@@ -1,4 +1,4 @@
-{"books":[{"ID":"0","title":"se non ora quando","price":"12","npages":"345","yearpub":"1896","necklace":"i grandi classici","date":"24/01/2019","department":"fumetti","editor":"mondadori","author":"JK Rowling"},
+{"books":[{"ID":"0","title":"se non ora quando","price":"12","yearpub":"1896","necklace":"i grandi classici","date":"24/01/2019","department":"fumetti","editor":"mondadori","author":"JK Rowling"},
 {"ID":"1","title":"hunger games","price":"13","yearpub":"1896","necklace":"i grandi classici","date":"12/11/2000","department":"arte","editor":"mondadori","author":"tolkien"},
 {"ID":"2","title":"ventimila leghe sotto i mari","price":"24","yearpub":"1896","necklace":"i grandi classici","date":"16/3/2010","department":"architettura","editor":"mondadori","author":"pewdiepie"},
 {"ID":"3","title":"assassinio sull'orient express","price":"40","yearpub":"1896","necklace":"i grandi classici","date":"30/1/2001","department":"fantasy","editor":"mondadori","author":"esghere"},
