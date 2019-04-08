@@ -26,6 +26,10 @@ namespace ServiceClient
         string codicecarrello = "";
         public MainWindow()
         {
+           string t = "SELECT title FROM books WHERE arch_data BETWEEN "+"2018-03-11"+" AND "+"2019-20-01";
+           string t1= "SELECT COUNT(books.ID) FROM books JOIN departments ON books.department = departments.ID JOIN bookcategories on books.ID = bookcategories.book WHERE departments.type = "+"fumetti"+" AND bookcategories.category = "+"Ultimi Arrivi";
+           string t2 = " SELECT title, discount FROM `books` join bookcategories ON books.ID = bookcategories.book JOIN categories on bookcategories.category = categories.type  WHERE discount > 0 ORDER BY discount"; 
+
             InitializeComponent();
             btn_ricerca.IsEnabled = false;
             dp_data1.Visibility = System.Windows.Visibility.Hidden;
@@ -43,7 +47,7 @@ namespace ServiceClient
             }
             else if(id==1)
             {              
-                string url = "http://10.13.100.25/work/webservices/books/queries.php?codice=" + numcodice + "&date1=" + dp_data1.DisplayDate.ToShortDateString() + "&date2=" + dp_data2.DisplayDate.ToShortDateString();
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?codice=" + numcodice + "&date1=" + dp_data1.Text + "&date2=" + dp_data2.Text;
                 Getrequest(url);
             }
             else
@@ -53,6 +57,27 @@ namespace ServiceClient
                 Getrequest(url);
             }
         }
+        //Mysql
+        /**
+        private void Btn_ricerca_Click(object sender, RoutedEventArgs e)
+        {
+            if (id == 0)
+            {
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?query=" + t;
+                Getrequest(url);
+            }
+            else if (id == 1)
+            {
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?query=" + t2;
+                Getrequest(url);
+            }
+            else
+            {
+                codicecarrello = txt_codice.Text;
+                string url = "http://10.13.100.25/work/webservices/books/queries.php?query=" + t3;
+                Getrequest(url);
+            }
+        }*/
 
         /**
          * Inviatore della richiesta
